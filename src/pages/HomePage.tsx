@@ -1,13 +1,13 @@
 /** @format */
 
 import React, { useState } from "react";
-import JsonInput from "./components/JsonInput";
-import SchemaInput from "./components/SchemaInput";
-import ValidationResult from "./components/ValidationResult";
-import { JsonSchemaContextProvider } from "./context/JsonSchemaContext";
-import useValidation from "./hooks/useValidation";
+import JsonInput from "../components/JsonInput";
+import SchemaInput from "../components/SchemaInput";
+import ValidationResult from "../components/ValidationResult";
+import { JsonSchemaContextProvider } from "../context/JsonSchemaContext";
+import useValidation from "../hooks/useValidation";
 
-const App: React.FC = () => {
+const HomePage: React.FC = () => {
     const [json, setJson] = useState<string>("");
     const [schema, setSchema] = useState<string>("");
     const { validationResult, validateJson } = useValidation();
@@ -37,4 +37,4 @@ const App: React.FC = () => {
     );
 };
 
-export default App;
+export default HomePage;
