@@ -1,10 +1,12 @@
 /** @format */
 
 import Ajv, { ValidateFunction, ErrorObject } from "ajv";
+import addFormats from "ajv-formats";
 import { safeJsonParse, ParseResult } from "../utils/jsonUtils";
 import { safeSchemaParse } from "../utils/schemaUtils";
 
 const ajv = new Ajv();
+addFormats(ajv);
 
 export interface ValidationResult {
     isValid: boolean;
@@ -37,13 +39,19 @@ export const validateJsonAgainstSchema = (
     }
 
     try {
+        // console.log("Parsed Schema:", schemaResult.schema);
         const validate = ajv.compile(schemaResult.schema as object);
+        // console.log("Parsed JSON:", jsonResult.data);
         const isValid = validate(jsonResult.data as object);
+        if (!isValid) {
+            console.error("Validation errors:", validate.errors); // Log validation errors
+        }
         return {
             isValid,
             errors: validate.errors,
         };
     } catch (error) {
+        // console.error("Schema compilation or validation error:", error); // Detailed error logging
         const errors: ErrorObject[] = [
             {
                 instancePath: "",

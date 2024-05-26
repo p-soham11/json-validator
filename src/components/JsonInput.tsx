@@ -7,14 +7,14 @@ interface JsonInputProps {
 }
 
 const JsonInput: React.FC<JsonInputProps> = ({ onJsonChange }) => {
-    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleJSONChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         onJsonChange(e.target.value);
     };
 
     return (
         <div>
             <h2>JSON Input</h2>
-            <textarea onChange={handleChange} rows={10} cols={50} />
+            <textarea onChange={handleJSONChange} rows={10} cols={50} />
         </div>
     );
 };

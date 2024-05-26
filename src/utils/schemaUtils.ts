@@ -27,10 +27,12 @@ export const isValidJsonSchema = (schemaString: string): boolean => {
 export const safeSchemaParse = (
     schemaString: string
 ): { schema: object | null; error: string | null } => {
+    // console.log("Parsing schema:", schemaString); // Debugging log
     try {
         const schema = JSON.parse(schemaString);
         return { schema, error: null };
     } catch (error) {
+        // console.error("Schema parsing error:", error); // Debugging log
         return { schema: null, error: "Invalid JSON schema format" };
     }
 };

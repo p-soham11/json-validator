@@ -7,14 +7,14 @@ interface SchemaInputProps {
 }
 
 const SchemaInput: React.FC<SchemaInputProps> = ({ onSchemaChange }) => {
-    const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const handleSchemaChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         onSchemaChange(e.target.value);
     };
 
     return (
         <div>
             <h2>Schema Input</h2>
-            <textarea onChange={handleChange} rows={10} cols={50} />
+            <textarea onChange={handleSchemaChange} rows={10} cols={50} />
         </div>
     );
 };
