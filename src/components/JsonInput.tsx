@@ -1,6 +1,7 @@
 /** @format */
 
 import React from "react";
+import "../assets/styles/HomePage.css";
 
 interface JsonInputProps {
     onJsonChange: (json: string) => void;
@@ -13,8 +14,8 @@ const JsonInput: React.FC<JsonInputProps> = ({ onJsonChange }) => {
 
     return (
         <div>
-            <h2>JSON Input</h2>
-            <textarea onChange={handleJSONChange} rows={10} cols={50} />
+            <h2 style={{color:"#8B93FF"}}>JSON Input</h2>
+            <textarea onChange={handleJSONChange}  rows={30} cols={40} />
         </div>
     );
 };
