@@ -51,7 +51,7 @@ export const validateJsonAgainstSchema = (
             errors: validate.errors,
         };
     } catch (error) {
-        // console.error("Schema compilation or validation error:", error); // Detailed error logging
+        // console.error("Schema compilation or validation error:", error);
         const errors: ErrorObject[] = [
             {
                 instancePath: "",
